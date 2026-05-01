@@ -1,0 +1,19 @@
+name: Aternos Bot 24/7
+on:
+  push:
+  schedule:
+    - cron: '*/20 * * * *' # Se ejecuta cada 20 min para mantenerlo vivo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run AFK Bot
+        uses: Minionguyjpro/Afk-bot@v1.0.3
+        with:
+          ip: ${{ secrets.ATERNOS_IP }}
+          port: 25565 # O el puerto de tu servidor
+          name: AFKBOT
+          
